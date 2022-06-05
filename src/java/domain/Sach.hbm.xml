@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-May-2022 04:22:46 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Sach" table="sach" catalog="quanlysach" optimistic-lock="version">
+        <id name="masach" type="int">
+            <column name="masach" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="loaisach" class="domain.Loaisach" fetch="select">
+            <column name="maloaisach" not-null="true" />
+        </many-to-one>
+        <property name="tensach" type="string">
+            <column name="tensach" not-null="true" />
+        </property>
+        <property name="giasach" type="float">
+            <column name="giasach" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="anh" type="binary">
+            <column name="anh" />
+        </property>
+    </class>
+</hibernate-mapping>

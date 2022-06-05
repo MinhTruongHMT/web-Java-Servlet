@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-May-2022 04:22:46 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="domain.Loaisach" table="loaisach" catalog="quanlysach" optimistic-lock="version">
+        <id name="maloai" type="java.lang.Integer">
+            <column name="maloai" />
+            <generator class="identity" />
+        </id>
+        <property name="tenloai" type="string">
+            <column name="tenloai" not-null="true" />
+        </property>
+        <set name="saches" table="sach" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="maloaisach" not-null="true" />
+            </key>
+            <one-to-many class="domain.Sach" />
+        </set>
+    </class>
+</hibernate-mapping>
